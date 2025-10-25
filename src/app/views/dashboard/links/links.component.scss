@@ -1,0 +1,57 @@
+.example-header-image {
+  background-image: url('https://material.angular.dev/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+ #getData {
+          width: 250px;
+          height: 200px;
+          padding: 10px;
+          border: 1px solid #4f4d4d;
+          background-color: limegreen;
+      }
+
+      // #dragData{
+      //    width: 250px;
+      //     height: 200px;
+      //     padding: 10px;
+      //     border: 1px solid #4f4d4d;
+      //     background-color: lime;
+      // }
+
+      // .wrapper {
+      //   display: inline-flex;
+      //   border: 2px solid red;
+      // }
+      .cover{
+        // border: 2px solid purple;
+        display: inline-flex;
+        flex-direction: row;
+        width: 100%;
+        align-content: center;
+        // align-content: center;
+      }
+
+      .innerCover{
+        // border: 2px solid green;
+        display: inline-flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      .innerCover2{
+        // border: 2px solid orange;
+        display: inline-flex;
+        flex-direction: row;
+        height: 100%;
+      }
+
+      .container{
+        //  border: 2px solid red;
+        
+         margin: 0;
+      }
+      .cont2{
+        // border: 2px solid blue;
+      }
+      .btn{
+         --mat-mdc-button-container-color: #f7f6f4;
+      }

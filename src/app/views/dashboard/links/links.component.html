@@ -1,0 +1,88 @@
+<p>links works!</p>
+<div class="cover">
+  <div class="innerCover">
+    <div class="innerCover2">
+<div class="container">
+  
+  <div class="row" >
+    <div class="col-md-4 mb-4"  *ngFor="let item of dataSource;let i = index" >
+      <div class="wrapper">
+      
+      <mat-card class="example-card" appearance="outlined"  (drop)="onDrop($event, i)"  (dragover)="onAllowDrop($event)" [id]="'dragItem-' + i" draggable="true" (dragstart)="onDrag($event)" [attr.index]="i" >
+            <!-- <div id="getData" cdkDropList (cdkDropListDropped)="onDrop($event)" style="width: 250px; height: 200px; border: 1px solid #4f4d4d; padding: 10px;">
+      </div>
+    <br> 
+    <div id="dragData"
+         
+         cdkDrag
+         width="250" 
+         height="200"> 
+         </div>  -->
+         <!-- <div  (drop)="onDropChild($event)" (dragover)="onDragChild($event)"
+            id="getData"
+           
+            style="width: 250px; height: 200px; padding: 10px; border: 1px solid #4f4d4d;"></div>
+    <br> 
+   <div
+       
+        style="width: 250px; height: 200px; background-color: lightgreen; display: flex; align-items: center; justify-content: center;"
+> </div> -->
+
+        
+
+       
+
+        <mat-card-content >
+
+          <div  >
+
+
+          <mat-card-header >
+          
+          <mat-card-title>{{ item.title || 'No Title' }}</mat-card-title>
+          <mat-card-subtitle>{{ item.subtitle || item.url }}</mat-card-subtitle>
+        </mat-card-header>
+           <!-- Edit Field Section -->
+          <div *ngIf="editingIndex === i" class="mt-2">
+            <input #inputname type='text'[(ngModel)]="linkname" class="form-control mb-2" placeholder="Edit title" (change)="changeValue($event)">
+            <input #inputurl type='text'[(ngModel)]="url" class="form-control mb-2" placeholder="Edit url" (change)="changeValue($event)">
+            <button mat-button color="primary" (click)="saveEdit(i)">Save</button>
+            <button mat-button color="warn" (click)="cancelEdit()">Cancel</button>
+          </div>
+        <mat-card-actions>
+          <!-- <a [href]="item.url" target="_blank">
+            <button mat-button color="primary">Visit</button>
+          </a>
+          <section>
+  <div class="example-label">Text</div>
+  <div class="example-button-row">
+    <button matButton>Basic</button>
+    <button matButton disabled>Disabled</button>
+    <a matButton href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+          <button mat-button>SHARE</button> -->
+        <a [href]="item.url" target="_blank">
+            <button mat-button color="primary" *ngIf="!isLoggedIn" >Visit</button>
+          </a>
+          <button mat-button (click)="Edit(i, item.url)"  *ngIf="isLoggedIn">Edit</button>
+
+        </mat-card-actions>
+
+        </div>
+        </mat-card-content>
+        
+      </mat-card>
+      
+      </div>
+    </div>
+  </div>
+</div>
+<div class="cont2">
+    <button mat-raised-button class="btn" (click)="openPopup()" type="submit"><b>Add Link</b></button>
+</div>
+</div>
+</div>
+</div>
+
+

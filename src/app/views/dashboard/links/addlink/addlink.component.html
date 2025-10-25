@@ -1,0 +1,73 @@
+<!-- <p>addlink works!</p>
+ <form [formGroup]="addlinkForm" (ngSubmit)="addLink()">
+          <div class="">
+            <mat-form-field class="full-width">
+              <input
+                matInput
+                name="url"
+                [formControl]="addlinkForm.controls['url']"
+                placeholder="url"
+                value="">
+            </mat-form-field>
+            <small 
+              *ngIf="addlinkForm.controls['url'].hasError('required') && addlinkForm.controls['url'].touched" 
+              class="form-error-msg"> url is required </small>
+          </div>
+
+          <div class="">
+            <mat-form-field class="full-width">
+              <input 
+                type="name"
+                name="name"
+                matInput
+                [formControl]="addlinkForm.controls['name']"
+                placeholder="Link Name" 
+                value="">
+            </mat-form-field>
+            <small 
+              *ngIf="addlinkForm.controls['name'].hasError('required') && addlinkForm.controls['name'].touched" 
+              class="form-error-msg"> Name is required </small>
+          </div>
+          
+        
+          
+          <button mat-raised-button class="mat-primary full-width mb-16" [disabled]="addlinkForm.invalid">Add Link</button>
+         
+        </form> -->
+
+
+
+
+        <p>addlink works!</p>
+
+<form [formGroup]="addlinkForm" (ngSubmit)="addLink()">
+
+  <!-- URL field -->
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>URL</mat-label>
+    <input
+      matInput
+      formControlName="url"
+      placeholder="Enter URL">
+    <mat-error *ngIf="addlinkForm.get('url')?.hasError('required') && addlinkForm.get('url')?.touched">
+      URL is required
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Name field -->
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Link Name</mat-label>
+    <input
+      matInput
+      formControlName="name"
+      placeholder="Enter Link Name">
+    <mat-error *ngIf="addlinkForm.get('name')?.hasError('required') && addlinkForm.get('name')?.touched">
+      Name is required
+    </mat-error>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" class="full-width mb-16" [disabled]="addlinkForm.invalid">
+    Add Link
+  </button>
+
+</form>

@@ -1,0 +1,66 @@
+<mat-card class="example-card" appearance="outlined">
+        <mat-card-header>
+          
+          <mat-card-title></mat-card-title>
+          <mat-card-subtitle></mat-card-subtitle>
+        </mat-card-header>
+
+       
+
+        <mat-card-content>
+          <form [formGroup]="userProfileForm" (ngSubmit)="onSubmit()">
+            <h2>User Profile</h2>
+
+            <div class="form-group">
+                <label for="userName">User Name:</label>
+                <input id="userName" type="text" formControlName="userName" class="form-control mb-2" >
+                <div *ngIf="userProfileForm.get('userName')?.invalid && userProfileForm.get('userName')?.touched" class="error-message">
+                User Name is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input id="name" type="text" formControlName="name" class="form-control mb-2" >
+                <div *ngIf="userProfileForm.get('name')?.invalid && userProfileForm.get('name')?.touched" class="error-message">
+                Name is required.
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input id="email" type="email" formControlName="email" class="form-control mb-2" >
+                <div *ngIf="userProfileForm.get('email')?.invalid && userProfileForm.get('email')?.touched" class="error-message">
+                <span *ngIf="userProfileForm.get('email')?.errors?.['required']">Email is required.</span>
+                <span *ngIf="userProfileForm.get('email')?.errors?.['email']">Enter a valid email.</span>
+                </div>
+            </div>
+
+           
+            <!-- <button mat-button color="primary" (click)="saveEdit()">Save</button> -->
+                        <button mat-button color="warn" (click)="cancelEdit()">Cancel</button>
+  <button type="submit"  mat-button color="primary"  [disabled]="userProfileForm.invalid">Save</button>
+</form>
+        </mat-card-content>
+         <!-- Edit Field Section -->
+          
+            
+          
+        <mat-card-actions>
+          <!-- <a [href]="item.url" target="_blank">
+            <button mat-button color="primary">Visit</button>
+          </a>
+          <section>
+  <div class="example-label">Text</div>
+  <div class="example-button-row">
+    <button matButton>Basic</button>
+    <button matButton disabled>Disabled</button>
+    <a matButton href="https://www.google.com/" target="_blank">Link</a>
+  </div>
+</section>
+          <button mat-button>SHARE</button> -->
+        
+          <!-- <button mat-button (click)="Edit(i, item.url)">Edit</button> -->
+
+        </mat-card-actions>
+      </mat-card>
