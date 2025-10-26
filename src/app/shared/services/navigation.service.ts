@@ -87,9 +87,9 @@ export class NavigationService {
     // or false
     if (this.route.snapshot.data['user']) {
       console.log("User is logged in");
-      return false;
+      return true;
     }
-    return true;
+    return false;
   }
 
   publishNavigationChange(menuType: string) {
