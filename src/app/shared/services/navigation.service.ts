@@ -34,7 +34,7 @@ interface IBadge {
   providedIn: 'root'
 })
 export class NavigationService {
-  private isLoggedIn: boolean = false;
+  private isUsername: boolean = false;
 
   private iconMenu: IMenuItem[] = [];
   iconTypeMenuTitle = 'Frequently Accessed';
@@ -44,29 +44,18 @@ export class NavigationService {
 
   constructor(private route: ActivatedRoute, private router: Router) {
     // Simulate getting user login state — you should replace with actual auth logic
-    this.isLoggedIn = this.getUserLoginStatus();
+    this.isUsername = this.getUserNameStatus();
 
-    this.iconMenu = this.isLoggedIn?[
-      {
-        name: 'Profile',
-        state: 'user/profile',
-        type: 'link',
-        icon: 'person',
-      },
-      {
-        name: 'Links',
-        state: 'user/links',
-        type: 'link',
-        icon: 'link',
-      },
+    this.iconMenu = this.isUsername?[
       
       
-    ]:[{
+
+      {
         name: 'Public Link',
         state: `${this.geturl()}`,
         type: 'link',
         icon: 'lock',
-        userLoggedIn: this.isLoggedIn,
+        
         action: () => {
           // window.location.reload();
 
@@ -77,16 +66,29 @@ export class NavigationService {
       this.router.navigate([`${currentUrl}`]);
     });
   }
-      }];
+      }
+      
+    ]:[{
+        name: 'Profile',
+        state: 'user/profile',
+        type: 'link',
+        icon: 'person',
+      },
+      {
+        name: 'Links',
+        state: 'user/links',
+        type: 'link',
+        icon: 'link',
+      },];
 
     this.menuItems.next(this.iconMenu);
   }
 
-  private getUserLoginStatus(): boolean {
+  private getUserNameStatus(): boolean {
     // Replace this with actual logic — e.g., from AuthService or route data
     // or false
     if (this.route.snapshot.data['user']) {
-      console.log("User is logged in");
+      console.log("username recieved from params");
       return true;
     }
     return false;

@@ -3,6 +3,7 @@ import { MatButton } from '@angular/material/button';
 import { MatProgressBar } from '@angular/material/progress-bar';
 import { Validators, UntypedFormGroup, UntypedFormControl, FormControl, FormGroup } from '@angular/forms';
 import { AuthService } from 'app/services/authServices/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +15,7 @@ export class SignupComponent implements OnInit {
   @ViewChild(MatButton) submitButton: MatButton;
 
   signupForm: FormGroup
-  constructor(private service: AuthService) {}
+  constructor(private service: AuthService, private router: Router) {}
 
   ngOnInit() {
     
@@ -41,7 +42,10 @@ export class SignupComponent implements OnInit {
     this.service.signup(signupData).subscribe({
       next: (res: any) => {
         console.log("Signup successful", res);
-        this.resetFormState();
+        localStorage.setItem('userRole', res.userRole);
+        localStorage.setItem('userId', res.userId);
+        this.service.setToken(res.token);
+        this.router.navigateByUrl('user/links');
       },
       error: (err: any) => {
         console.error("Signup failed", err);
