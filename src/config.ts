@@ -1,5 +1,5 @@
 export const config = {
-  apiUrl: 'http://localhost:4000',
+  apiUrl: 'https://linkinbio-backend-nmef.onrender.com',
   authRoles: {
     sa: ['SA'], // Only Super Admin has access
     admin: ['SA', 'Admin'], // Only SA & Admin has access
