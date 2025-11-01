@@ -88,7 +88,7 @@ export class NavigationService {
     // Replace this with actual logic — e.g., from AuthService or route data
     // or false
     if (this.route.snapshot.data['user']) {
-      console.log("username recieved from params");
+      console.log("username recieved from params", this.route.snapshot.paramMap.get('username'));
       return true;
     }
     return false;

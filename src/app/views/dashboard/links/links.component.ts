@@ -11,6 +11,7 @@ import { LinksViewService } from 'app/services/linksView/links-view.service';
 import { ResponseHandlerService } from 'app/services/responseHandlerService/response-handler.service';
 import { UserOperationService } from 'app/services/userOperationServices/user-operation.service';
 import { AddlinkComponent } from './addlink/addlink.component';
+import { setUserName } from 'app/services/global';
 export interface DialogData {
   animal: string;
   name: string;
@@ -40,10 +41,11 @@ export class LinksComponent implements OnInit {
     
     if(this.router.url == '/user/links'){
       this.isLoggedIn = this.route.snapshot.data['user']
-    ;
+    
     }
     else{
       this.userName = this.route.snapshot.paramMap.get('username');
+      setUserName(this.userName);
      
     }
      console.log("username from route "+this.userName);

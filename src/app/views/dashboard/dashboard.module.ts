@@ -16,12 +16,14 @@ import { LinksComponent } from './links/links.component';
 import { AddlinkComponent } from './links/addlink/addlink.component';
 import { A } from "@angular/cdk/keycodes";
 import { ReactiveFormsModule } from "@angular/forms";
+import { SharedModule } from "app/shared/shared.module";
 
 @NgModule({
   imports: [
     CommonModule,
     SharedMaterialModule,
     ReactiveFormsModule,
+    SharedModule,
     FlexLayoutModule,
     AddlinkComponent,
     NgChartsModule,

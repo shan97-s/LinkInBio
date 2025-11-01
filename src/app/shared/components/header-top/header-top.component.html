@@ -88,7 +88,7 @@
         </mat-grid-list>
       </mat-menu>
       <!-- Notification toggle button -->
-      <button 
+      <!-- <button 
       mat-icon-button
       matTooltip="Notifications" 
       (click)="toggleNotific()"
@@ -96,12 +96,12 @@
       class="topbar-button-right">
         <mat-icon>notifications</mat-icon>
         <span class="notification-number mat-bg-warn">3</span>
-      </button>
+      </button> -->
       <!-- Top left user menu -->
-      <button mat-icon-button [matMenuTriggerFor]="accountMenu" class="topbar-button-right mr-16 img-button">
+      <!-- <button mat-icon-button [matMenuTriggerFor]="accountMenu" class="topbar-button-right mr-16 img-button">
         <img src="assets/images/face-7.jpg" alt="">
-      </button>
-      <mat-menu #accountMenu="matMenu">
+      </button> -->
+      <!-- <mat-menu #accountMenu="matMenu">
         <button mat-menu-item [routerLink]="['/profile/overview']">
           <mat-icon>account_box</mat-icon>
           <span>Profile</span>
@@ -118,15 +118,15 @@
           <mat-icon>exit_to_app</mat-icon>
           <span>Sign out</span>
         </button>
-      </mat-menu>
+      </mat-menu> -->
       <!-- Mobile screen menu toggle -->
-      <button 
+      <!-- <button 
       mat-icon-button 
       class="mr-16" 
       (click)="toggleSidenav()" 
       *ngIf="layoutConf.isMobile">
         <mat-icon>menu</mat-icon>
-      </button>
+      </button> -->
 
     </div>
   </div>
